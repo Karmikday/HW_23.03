@@ -1,21 +1,29 @@
 #include <iostream>
 using namespace std;
-int  summa(int x, int n)  
+int degree(int n, int x)
 {
-    if (n == x - 1)
+    if (x == 1)
     {
-        return 0;
+        return n;
     }
-    return n + summa(x, n-1);
+    if (!x)
+    {
+        return 1;
+    }
+    else if (n < 0)
+    {
+        return 1;
+    }
+    return n * degree(n, --x);
 }
 int main()
 {
-    int x, y;
-    cout << "enter a range. 1 num->";
+    int n;
+    int x;
+    cout << "Your num->";
+    cin >> n;
+    cout << "Degree->";
     cin >> x;
-    cout << "enter a range. 2 num->";
-    cin >> y;
-    cout << summa(x, y);
-
+    cout << "answer->" << degree(n, x);
 
 }
